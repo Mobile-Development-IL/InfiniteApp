@@ -3,6 +3,7 @@ package com.infinitelearning.infiniteapp.presentation.component
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -11,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.infinitelearning.infiniteapp.R
@@ -32,7 +34,13 @@ fun MentorItemHorizontal(
                 .clip(CircleShape)
                 .size(80.dp)
         )
-        Text(text = mentor.name, style = MaterialTheme.typography.titleMedium)
+        Text(
+            text = mentor.name,
+            style = MaterialTheme.typography.titleMedium,
+            overflow = TextOverflow.Ellipsis,
+            modifier = Modifier.width(80.dp),
+            maxLines = 1
+        )
         Text(text = mentor.role, color = MaterialTheme.colorScheme.primary)
     }
 }
@@ -41,6 +49,6 @@ fun MentorItemHorizontal(
 @Composable
 private fun MentorItemHorizontalPreview() {
     InfiniteAppTheme {
-        MentorItemHorizontal(mentor = Mentor(1, "Reza", "Mobile", R.drawable.reza))
+        MentorItemHorizontal(mentor = Mentor(1, "Reza Kurniawan", "Mobile", R.drawable.reza))
     }
 }
