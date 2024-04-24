@@ -32,12 +32,12 @@ fun InfiniteApp(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 modifier = modifier
             ) {
-                items(mentors) {
+                items(mentors, key = { it.id }) {
                     MentorItem(mentor = it)
                 }
             }
         }
-        items(mentees) {
+        items(mentees, key = { it.id }) {
             MenteeItem(mentee = it, modifier = Modifier.padding(horizontal = 16.dp))
         }
     }

@@ -27,7 +27,7 @@ fun CourseScreen(
         columns = GridCells.Adaptive(140.dp),
         modifier = modifier.fillMaxSize()
     ) {
-        items(courses) {
+        items(courses, key = { it.id }) {
             CourseItem(course = it)
         }
     }

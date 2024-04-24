@@ -29,7 +29,7 @@ fun GalleryScreen(
         horizontalArrangement = Arrangement.spacedBy(4.dp),
         modifier = modifier.fillMaxSize()
     ) {
-        items(galleries) {
+        items(galleries, key = { it.id }) {
             Image(
                 painter = painterResource(id = it.photo),
                 contentDescription = it.name,
