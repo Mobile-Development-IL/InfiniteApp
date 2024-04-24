@@ -2,9 +2,6 @@ package com.infinitelearning.infiniteapp.presentation.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
@@ -14,8 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.infinitelearning.infiniteapp.R
@@ -27,31 +25,32 @@ fun MentorItem(
     mentor: Mentor,
     modifier: Modifier = Modifier,
 ) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
-            .fillMaxWidth()
     ) {
         Image(
             painter = painterResource(id = mentor.photo),
-            contentDescription = mentor.name,
-            contentScale = ContentScale.Crop,
-            modifier = Modifier
+            contentDescription = mentor.name, modifier = Modifier
                 .clip(CircleShape)
-                .size(68.dp)
+                .size(80.dp)
         )
-        Spacer(modifier = Modifier.width(16.dp))
-        Column {
-            Text(text = mentor.name, style = MaterialTheme.typography.titleMedium)
-            Text(text = mentor.role, color = MaterialTheme.colorScheme.primary)
-        }
+        Text(
+            text = mentor.name,
+            style = MaterialTheme.typography.titleMedium,
+            overflow = TextOverflow.Ellipsis,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.width(80.dp),
+            maxLines = 1
+        )
+        Text(text = mentor.role, color = MaterialTheme.colorScheme.primary)
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-private fun MentorItemPreview() {
+private fun MentorItemHorizontalPreview() {
     InfiniteAppTheme {
-        MentorItem(mentor = Mentor(1, "Nabila", "Mobile", R.drawable.nabila))
+        MentorItem(mentor = Mentor(1, "Reza Kurniawan", "Mobile", R.drawable.reza))
     }
 }
