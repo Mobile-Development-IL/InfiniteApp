@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    InfiniteApp(mentors = DummyData.mobileMentors)
+                    InfiniteApp(mentors = DummyData.mobileMentors, mentees = DummyData.mobileMentees)
                 }
             }
         }
