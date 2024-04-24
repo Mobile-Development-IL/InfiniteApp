@@ -26,6 +26,6 @@ To build and run the project locally, follow these steps:
 2. Open the project in Android Studio.
 3. Ensure that the required SDK versions and dependencies are installed.
 6. Build and run the app on an emulator or physical device.
-7. Start from branch `lazy-starter`
+7. Start from branch `starter-lazy`
 
 Feel free to explore the codebase and make any contributions or improvements as needed. We appreciate your contributions to Mobile-Development-IL!
