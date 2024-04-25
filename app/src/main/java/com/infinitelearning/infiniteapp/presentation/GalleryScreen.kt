@@ -20,8 +20,8 @@ import com.infinitelearning.infiniteapp.ui.theme.InfiniteAppTheme
 
 @Composable
 fun GalleryScreen(
-    galleries: List<Gallery>,
     modifier: Modifier = Modifier,
+    galleries: List<Gallery> = DummyData.infiniteGalleries
 ) {
     LazyVerticalStaggeredGrid(
         columns = StaggeredGridCells.Adaptive(160.dp),

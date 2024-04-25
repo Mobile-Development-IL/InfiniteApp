@@ -1,6 +1,7 @@
 package com.infinitelearning.infiniteapp.presentation.component
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -24,10 +25,13 @@ import com.infinitelearning.infiniteapp.ui.theme.InfiniteAppTheme
 fun MentorItem(
     mentor: Mentor,
     modifier: Modifier = Modifier,
+    onItemClicked: (Int) -> Unit
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier
+        modifier = modifier.clickable {
+            onItemClicked(mentor.id)
+        }
     ) {
         Image(
             painter = painterResource(id = mentor.photo),
@@ -43,7 +47,13 @@ fun MentorItem(
             modifier = Modifier.width(80.dp),
             maxLines = 1
         )
-        Text(text = mentor.role, color = MaterialTheme.colorScheme.primary)
+        Text(
+            text = mentor.role,
+            color = MaterialTheme.colorScheme.primary,
+            overflow = TextOverflow.Ellipsis,
+            modifier = Modifier.width(80.dp),
+            maxLines = 1
+        )
     }
 }
 
@@ -51,6 +61,11 @@ fun MentorItem(
 @Composable
 private fun MentorItemHorizontalPreview() {
     InfiniteAppTheme {
-        MentorItem(mentor = Mentor(1, "Reza Kurniawan", "Mobile", R.drawable.reza))
+        MentorItem(
+            mentor = Mentor(1, "Reza Kurniawan", "Reza", "Mobile", R.drawable.reza),
+            onItemClicked = { mentorId ->
+                println("Mentor Id : $mentorId")
+            }
+        )
     }
 }

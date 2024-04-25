@@ -17,8 +17,8 @@ import com.infinitelearning.infiniteapp.ui.theme.InfiniteAppTheme
 
 @Composable
 fun CourseScreen(
-    courses: List<Course>,
     modifier: Modifier = Modifier,
+    courses: List<Course> = DummyData.mobileCourses
 ) {
     LazyVerticalGrid(
         contentPadding = PaddingValues(16.dp),

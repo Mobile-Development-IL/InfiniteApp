@@ -11,31 +11,36 @@ object DummyData {
         Mentor(
             id = 1,
             name = "Reza Kurniawan",
-            role = "Mobile",
+            nickname = "Reza",
+            role = "Technical Mobile",
             photo = R.drawable.reza
         ),
         Mentor(
             id = 2,
             name = "Reynaldi",
-            role = "Mobile",
+            nickname = "Rey",
+            role = "Technical Mobile",
             photo = R.drawable.reynaldi
         ),
         Mentor(
             id = 3,
             name = "Raihan Zaky",
-            role = "Mobile",
+            nickname = "Han",
+            role = "Technical Mobile",
             photo = R.drawable.raihan
         ),
         Mentor(
             id = 4,
             name = "Nabila Syafrina Bukka",
-            role = "Mobile",
+            nickname = "Nab",
+            role = "Technical Mobile",
             photo = R.drawable.nabila
         ),
         Mentor(
             id = 5,
             name = "Rahmad Noor Ikhsan",
-            role = "Mobile",
+            nickname = "Mad",
+            role = "Technical Mobile",
             photo = R.drawable.rahmad
         )
     )
