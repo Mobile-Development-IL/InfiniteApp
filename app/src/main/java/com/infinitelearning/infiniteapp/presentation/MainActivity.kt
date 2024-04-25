@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.infinitelearning.infiniteapp.data.DummyData
 import com.infinitelearning.infiniteapp.ui.theme.InfiniteAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,7 +18,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    InfiniteApp(mentors = DummyData.mobileMentors)
+                    InfiniteApp()
                 }
             }
         }
