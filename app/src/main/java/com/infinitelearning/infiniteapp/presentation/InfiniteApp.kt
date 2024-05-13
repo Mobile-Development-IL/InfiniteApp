@@ -1,5 +1,6 @@
 package com.infinitelearning.infiniteapp.presentation
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.BrowseGallery
@@ -38,6 +39,8 @@ import com.infinitelearning.infiniteapp.presentation.screen.detail.DetailMentorS
 import com.infinitelearning.infiniteapp.presentation.screen.gallery.GalleryScreen
 import com.infinitelearning.infiniteapp.presentation.screen.home.HomeScreen
 import com.infinitelearning.infiniteapp.presentation.screen.movie.MovieScreen
+import com.infinitelearning.infiniteapp.presentation.screen.splash.SplashScreen
+import com.infinitelearning.infiniteapp.utils.shouldShowBottomBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -45,35 +48,48 @@ fun InfiniteApp(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController()
 ) {
+    val navBackStack by navController.currentBackStackEntryAsState()
+    val currentRoute = navBackStack?.destination?.route
     val context = LocalContext.current
 
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = { Text(text = "Infinite App") },
-                actions = {
-                    IconButton(onClick = { shareItem(context) }) {
-                        Icon(
-                            imageVector = Icons.Default.Share, contentDescription = stringResource(
-                                id = R.string.menu_share
+            AnimatedVisibility(
+                visible = currentRoute.shouldShowBottomBar()
+            ) {
+                TopAppBar(
+                    title = { Text(text = "Infinite App") },
+                    actions = {
+                        IconButton(onClick = { shareItem(context) }) {
+                            Icon(
+                                imageVector = Icons.Default.Share,
+                                contentDescription = stringResource(id = R.string.menu_share)
                             )
-                        )
+                        }
                     }
-                }
-            )
+                )
+            }
         },
         bottomBar = {
-            BottomBar(navController)
+            AnimatedVisibility(
+                visible = currentRoute.shouldShowBottomBar()
+            ) {
+                BottomBar(navController)
+            }
         },
         modifier = modifier
     ) { contentPadding ->
         NavHost(
             navController = navController,
-            startDestination = Screen.Home.route,
+            startDestination = Screen.Splash.route,
             modifier = modifier.padding(contentPadding)
         ) {
+            composable(Screen.Splash.route) {
+                SplashScreen(navController = navController)
+            }
+
             composable(Screen.Home.route) {
-                HomeScreen(navController)
+                HomeScreen(navController = navController)
             }
 
             composable(Screen.Gallery.route) {
