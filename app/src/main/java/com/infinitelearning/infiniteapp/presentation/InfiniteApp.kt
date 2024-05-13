@@ -6,7 +6,6 @@ import androidx.compose.material.icons.filled.BrowseGallery
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Movie
 import androidx.compose.material.icons.filled.Share
-import androidx.compose.material.icons.filled.TipsAndUpdates
 import androidx.compose.material.icons.filled.Topic
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -35,10 +34,10 @@ import com.infinitelearning.infiniteapp.navigation.NavigationItem
 import com.infinitelearning.infiniteapp.navigation.Screen
 import com.infinitelearning.infiniteapp.presentation.component.shareItem
 import com.infinitelearning.infiniteapp.presentation.screen.course.CourseScreen
-import com.infinitelearning.infiniteapp.presentation.screen.movie.MovieScreen
 import com.infinitelearning.infiniteapp.presentation.screen.detail.DetailMentorScreen
 import com.infinitelearning.infiniteapp.presentation.screen.gallery.GalleryScreen
 import com.infinitelearning.infiniteapp.presentation.screen.home.HomeScreen
+import com.infinitelearning.infiniteapp.presentation.screen.movie.MovieScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
