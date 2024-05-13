@@ -75,4 +75,11 @@ dependencies {
 
     // coil image
     implementation(libs.coil.compose)
+
+    // accompanist
+    implementation(libs.accompanist.systemuicontroller)
+
+    // exoplayer
+    implementation(libs.androidx.media3.exoplayer)
+    implementation(libs.androidx.media3.ui)
 }

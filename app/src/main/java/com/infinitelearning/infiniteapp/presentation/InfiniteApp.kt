@@ -4,7 +4,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.BrowseGallery
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Movie
 import androidx.compose.material.icons.filled.Share
+import androidx.compose.material.icons.filled.TipsAndUpdates
 import androidx.compose.material.icons.filled.Topic
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -32,6 +34,11 @@ import com.infinitelearning.infiniteapp.R
 import com.infinitelearning.infiniteapp.navigation.NavigationItem
 import com.infinitelearning.infiniteapp.navigation.Screen
 import com.infinitelearning.infiniteapp.presentation.component.shareItem
+import com.infinitelearning.infiniteapp.presentation.screen.course.CourseScreen
+import com.infinitelearning.infiniteapp.presentation.screen.movie.MovieScreen
+import com.infinitelearning.infiniteapp.presentation.screen.detail.DetailMentorScreen
+import com.infinitelearning.infiniteapp.presentation.screen.gallery.GalleryScreen
+import com.infinitelearning.infiniteapp.presentation.screen.home.HomeScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -87,6 +94,10 @@ fun InfiniteApp(
                     mentorsId = navBackStackEntry.arguments?.getInt("mentorId")
                 )
             }
+
+            composable(Screen.Movie.route) {
+                MovieScreen()
+            }
         }
     }
 }
@@ -117,6 +128,11 @@ private fun BottomBar(
                 title = stringResource(id = R.string.menu_course),
                 icon = Icons.Default.Topic,
                 screen = Screen.Course
+            ),
+            NavigationItem(
+                title = stringResource(R.string.movie),
+                icon = Icons.Default.Movie,
+                screen = Screen.Movie
             )
         )
         navigationItems.map { item ->

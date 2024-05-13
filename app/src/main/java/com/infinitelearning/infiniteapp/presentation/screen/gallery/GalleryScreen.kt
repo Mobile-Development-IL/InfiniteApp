@@ -1,4 +1,4 @@
-package com.infinitelearning.infiniteapp.presentation
+package com.infinitelearning.infiniteapp.presentation.screen.gallery
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement

@@ -1,4 +1,4 @@
-package com.infinitelearning.infiniteapp.presentation
+package com.infinitelearning.infiniteapp.presentation.screen.course
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
