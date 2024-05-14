@@ -38,7 +38,9 @@ import com.infinitelearning.infiniteapp.presentation.screen.course.CourseScreen
 import com.infinitelearning.infiniteapp.presentation.screen.detail.DetailMentorScreen
 import com.infinitelearning.infiniteapp.presentation.screen.gallery.GalleryScreen
 import com.infinitelearning.infiniteapp.presentation.screen.home.HomeScreen
+import com.infinitelearning.infiniteapp.presentation.screen.login.LoginScreen
 import com.infinitelearning.infiniteapp.presentation.screen.movie.MovieScreen
+import com.infinitelearning.infiniteapp.presentation.screen.onboarding.OnBoardingScreen
 import com.infinitelearning.infiniteapp.presentation.screen.splash.SplashScreen
 import com.infinitelearning.infiniteapp.presentation.screen.task.AddTaskScreen
 import com.infinitelearning.infiniteapp.presentation.screen.task.DetailTaskScreen
@@ -91,6 +93,14 @@ fun InfiniteApp(
                 SplashScreen(navController = navController)
             }
 
+            composable(Screen.OnBoarding.route) {
+                OnBoardingScreen(navController = navController)
+            }
+
+            composable(Screen.Login.route) {
+                LoginScreen(navController)
+            }
+
             composable(Screen.Home.route) {
                 HomeScreen(navController = navController)
             }
@@ -115,12 +125,15 @@ fun InfiniteApp(
             composable(Screen.Movie.route) {
                 MovieScreen()
             }
+
             composable(Screen.Task.route) {
                 TaskScreen(navController = navController)
             }
+
             composable(Screen.AddTask.route) {
                 AddTaskScreen(navController = navController)
             }
+
             composable(
                 route = Screen.DetailTask.route,
                 arguments = listOf(

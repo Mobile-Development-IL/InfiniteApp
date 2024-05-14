@@ -1,6 +1,8 @@
 package com.infinitelearning.infiniteapp.navigation
 
 sealed class Screen (val route: String){
+    data object OnBoarding : Screen("onboarding")
+    data object Login : Screen("login")
     data object Home : Screen("home")
     data object Gallery: Screen("gallery")
     data object Course: Screen("course")

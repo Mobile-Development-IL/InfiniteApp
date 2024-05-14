@@ -82,4 +82,10 @@ dependencies {
     // exoplayer
     implementation(libs.androidx.media3.exoplayer)
     implementation(libs.androidx.media3.ui)
+
+    // Lottie
+    implementation(libs.lottie.compose)
+
+    //Data-Store
+    implementation(libs.androidx.datastore.preferences)
 }
