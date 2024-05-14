@@ -40,6 +40,9 @@ import com.infinitelearning.infiniteapp.presentation.screen.gallery.GalleryScree
 import com.infinitelearning.infiniteapp.presentation.screen.home.HomeScreen
 import com.infinitelearning.infiniteapp.presentation.screen.movie.MovieScreen
 import com.infinitelearning.infiniteapp.presentation.screen.splash.SplashScreen
+import com.infinitelearning.infiniteapp.presentation.screen.task.AddTaskScreen
+import com.infinitelearning.infiniteapp.presentation.screen.task.DetailTaskScreen
+import com.infinitelearning.infiniteapp.presentation.screen.task.TaskScreen
 import com.infinitelearning.infiniteapp.utils.shouldShowBottomBar
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -55,7 +58,7 @@ fun InfiniteApp(
     Scaffold(
         topBar = {
             AnimatedVisibility(
-                visible = currentRoute.shouldShowBottomBar()
+                visible = currentRoute.shouldShowBottomBar(),
             ) {
                 TopAppBar(
                     title = { Text(text = "Infinite App") },
@@ -109,9 +112,26 @@ fun InfiniteApp(
                     mentorsId = navBackStackEntry.arguments?.getInt("mentorId")
                 )
             }
-
             composable(Screen.Movie.route) {
                 MovieScreen()
+            }
+            composable(Screen.Task.route) {
+                TaskScreen(navController = navController)
+            }
+            composable(Screen.AddTask.route) {
+                AddTaskScreen(navController = navController)
+            }
+            composable(
+                route = Screen.DetailTask.route,
+                arguments = listOf(
+                    navArgument("title") { type = NavType.StringType }
+                )
+            ) {
+                val titleFile = it.arguments?.getString("title") ?: ""
+
+                DetailTaskScreen(
+                    titleFile = titleFile, navController = navController
+                )
             }
         }
     }

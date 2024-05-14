@@ -16,6 +16,7 @@ import com.infinitelearning.infiniteapp.model.Mentor
 import com.infinitelearning.infiniteapp.navigation.Screen
 import com.infinitelearning.infiniteapp.presentation.component.MenteeItem
 import com.infinitelearning.infiniteapp.presentation.component.MentorItem
+import com.infinitelearning.infiniteapp.presentation.screen.home.component.CardTask
 
 @Composable
 fun HomeScreen(
@@ -28,6 +29,9 @@ fun HomeScreen(
         verticalArrangement = Arrangement.spacedBy(8.dp),
         modifier = modifier
     ) {
+        item {
+            CardTask(onTaskClick = { navController.navigate(Screen.Task.route) })
+        }
         item {
             LazyRow(
                 contentPadding = PaddingValues(16.dp),
