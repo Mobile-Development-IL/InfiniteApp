@@ -88,4 +88,8 @@ dependencies {
 
     //Data-Store
     implementation(libs.androidx.datastore.preferences)
+
+    // permission
+    implementation("com.google.accompanist:accompanist-permissions:0.31.1-alpha")
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.34.0")
 }

@@ -6,6 +6,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.BrowseGallery
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Movie
+import androidx.compose.material.icons.filled.NotificationAdd
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Topic
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -34,6 +35,7 @@ import com.infinitelearning.infiniteapp.R
 import com.infinitelearning.infiniteapp.navigation.NavigationItem
 import com.infinitelearning.infiniteapp.navigation.Screen
 import com.infinitelearning.infiniteapp.presentation.component.shareItem
+import com.infinitelearning.infiniteapp.presentation.screen.alarm.AlarmScreen
 import com.infinitelearning.infiniteapp.presentation.screen.course.CourseScreen
 import com.infinitelearning.infiniteapp.presentation.screen.detail.DetailMentorScreen
 import com.infinitelearning.infiniteapp.presentation.screen.gallery.GalleryScreen
@@ -69,6 +71,12 @@ fun InfiniteApp(
                             Icon(
                                 imageVector = Icons.Default.Share,
                                 contentDescription = stringResource(id = R.string.menu_share)
+                            )
+                        }
+                        IconButton(onClick = { navController.navigate(Screen.Alarm.route) }) {
+                            Icon(
+                                imageVector = Icons.Default.NotificationAdd,
+                                contentDescription = stringResource(id = R.string.menu_alarm)
                             )
                         }
                     }
@@ -145,6 +153,10 @@ fun InfiniteApp(
                 DetailTaskScreen(
                     titleFile = titleFile, navController = navController
                 )
+            }
+
+            composable(Screen.Alarm.route) {
+                AlarmScreen(navController = navController)
             }
         }
     }
