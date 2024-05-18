@@ -14,6 +14,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.DateRange
+import androidx.compose.material.icons.twotone.Alarm
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.DatePicker
@@ -175,7 +176,7 @@ fun AlarmScreen(
                 ScheduleTimeTextField(
                     value = scheduleTime,
                     label = "Jam Jadwal",
-                    icon = Icons.Default.Close,
+                    icon = Icons.TwoTone.Alarm,
                     onValueChange = { scheduleTime = it },
                     onIconClick = { showTimePicker = true })
                 Row(
