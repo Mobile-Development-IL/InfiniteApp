@@ -1,6 +1,7 @@
 package com.infinitelearning.infiniteapp.presentation.screen.alarm
 
 import android.widget.Toast
+import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -10,6 +11,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.DateRange
@@ -57,7 +60,8 @@ import java.util.Locale
 @Composable
 fun AlarmScreen(
     navController: NavController,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    scrollState: ScrollState = rememberScrollState()
 ) {
     val context = LocalContext.current
 
@@ -148,12 +152,13 @@ fun AlarmScreen(
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 24.dp),
+                    .padding(horizontal = 24.dp)
+                    .verticalScroll(scrollState),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Spacer(modifier = Modifier.height(16.dp))
                 Text(
-                    text = "Tambah Alarm",
+                    text = "Buat Alarm",
                     style = MaterialTheme.typography.headlineLarge,
                     fontWeight = FontWeight.Medium,
                 )
@@ -187,14 +192,14 @@ fun AlarmScreen(
                             cancelNotification(context)
                         },
                         colors = ButtonDefaults.buttonColors(
-                            containerColor = Color.Red.copy(0.2f)
+                            containerColor = Color.Red.copy(0.8f)
                         ),
                         shape = MaterialTheme.shapes.small
                     ) {
                         Text(
                             text = "Batal",
                             style = MaterialTheme.typography.bodyLarge,
-                            color =  Color.White
+                            color = Color.White
                         )
                     }
                     Spacer(modifier = Modifier.width(16.dp))
