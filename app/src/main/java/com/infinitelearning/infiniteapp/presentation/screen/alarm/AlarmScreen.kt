@@ -12,9 +12,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.DateRange
-import androidx.compose.material.icons.twotone.Alarm
+import androidx.compose.material.icons.outlined.AlarmAdd
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.DatePicker
@@ -162,12 +161,12 @@ fun AlarmScreen(
                 ScheduleNameTextField(
                     value = scheduleText,
                     onValueChange = { if (it.length <= 25) scheduleText = it },
-                    label = "Nama Jadwal"
+                    label = "Nama Kegiatan"
                 )
                 ScheduleDateTextField(
                     value = scheduleDate,
                     onValueChange = { scheduleDate = it },
-                    label = "Tanggal jadwal",
+                    label = "Atur Tanggal",
                     icon = Icons.Default.DateRange,
                     onIconClick = {
                         showDatePicker = true
@@ -175,25 +174,28 @@ fun AlarmScreen(
                 )
                 ScheduleTimeTextField(
                     value = scheduleTime,
-                    label = "Jam Jadwal",
-                    icon = Icons.TwoTone.Alarm,
+                    label = "Atur Jam",
+                    icon = Icons.Outlined.AlarmAdd,
                     onValueChange = { scheduleTime = it },
                     onIconClick = { showTimePicker = true })
                 Row(
-                    horizontalArrangement = Arrangement.End,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 16.dp)
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.End
                 ) {
                     Button(
                         onClick = {
                             cancelNotification(context)
                         },
                         colors = ButtonDefaults.buttonColors(
-                            containerColor = Color.Red.copy(0.5f)
-                        )
+                            containerColor = Color.Red.copy(0.2f)
+                        ),
+                        shape = MaterialTheme.shapes.small
                     ) {
-                        Text(text = "Batal")
+                        Text(
+                            text = "Batal",
+                            style = MaterialTheme.typography.bodyLarge,
+                            color =  Color.White
+                        )
                     }
                     Spacer(modifier = Modifier.width(16.dp))
                     Button(
@@ -216,9 +218,14 @@ fun AlarmScreen(
                                 scheduleDate = ""
                                 scheduleTime = ""
                             }
-                        }
+                        },
+                        shape = MaterialTheme.shapes.small
                     ) {
-                        Text(text = "Simpan")
+                        Text(
+                            text = "Simpan",
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = Color.White
+                        )
                     }
                 }
             }

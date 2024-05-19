@@ -20,13 +20,14 @@ fun scheduleNotification(
     datePickerState: DatePickerState,
     title: String
 ) {
-    val intent = Intent(context.applicationContext, ReminderReceiver::class.java)
-    intent.putExtra(RMNDR_NOTI_TITLE_KEY, title)
+    val intent = Intent(context.applicationContext, ReminderReceiver::class.java).apply {
+        putExtra(RMNDR_NOTI_TITLE_KEY, title)
+    }
     val pendingIntent = PendingIntent.getBroadcast(
         context.applicationContext,
         RMNDR_NOTI_ID,
         intent,
-        PendingIntent.FLAG_MUTABLE
+        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE
     )
 
     val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager

@@ -8,7 +8,7 @@ import com.infinitelearning.infiniteapp.utils.NotificationKeys.RMNDR_NOTI_TITLE_
 class ReminderReceiver: BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
         val scheduleNotificationService = context?.let { ReminderNotification(it) }
-        val title: String? = intent?.getStringExtra(RMNDR_NOTI_TITLE_KEY)
+        val title: String = intent?.getStringExtra(RMNDR_NOTI_TITLE_KEY) ?: return
         scheduleNotificationService?.sendReminderNotification(title)
     }
 }

@@ -17,6 +17,7 @@ class ScheduleNotificationApplication : Application() {
             RMNDR_NOTI_CHNNL_NAME,
             NotificationManager.IMPORTANCE_HIGH
         )
+
         val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.createNotificationChannel(notificationChannel)
     }

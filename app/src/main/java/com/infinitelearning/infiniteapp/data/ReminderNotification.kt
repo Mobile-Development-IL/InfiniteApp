@@ -14,8 +14,8 @@ class ReminderNotification(private val context: Context) {
     private val notificationManager = context.getSystemService(NotificationManager::class.java)
     fun sendReminderNotification(title: String?) {
         val notification = NotificationCompat.Builder(context, RMNDR_NOTI_CHNNL_ID)
-            .setContentText(context.getString(R.string.app_name))
             .setContentTitle(title)
+            .setContentText(context.getString(R.string.app_name))
             .setSmallIcon(R.drawable.round_notifications_active_24)
             .setLargeIcon(
                 BitmapFactory.decodeResource(
