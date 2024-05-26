@@ -152,10 +152,10 @@ fun HomeContent(
             }
         },
         modifier = modifier
-    ) {
+    ) { contentPadding ->
         LazyColumn(
             verticalArrangement = Arrangement.spacedBy(8.dp),
-            modifier = Modifier.padding(it)
+            modifier = Modifier.padding(contentPadding)
         ) {
             item {
                 Header(

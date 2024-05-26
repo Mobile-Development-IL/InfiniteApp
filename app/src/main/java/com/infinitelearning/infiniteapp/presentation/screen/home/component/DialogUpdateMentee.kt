@@ -82,34 +82,35 @@ fun DialogUpdateMentee(
                     value = name,
                     onValueChange = { name = it },
                     label = { Text(text = "Nama") },
+                    maxLines = 1,
                     modifier = Modifier.fillMaxWidth()
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 OutlinedTextField(
                     value = program,
                     label = { Text(text = "Program") },
+                    maxLines = 1,
                     onValueChange = { program = it },
                     modifier = Modifier.fillMaxWidth()
                 )
                 Spacer(modifier = Modifier.height(8.dp))
-                Spacer(modifier = Modifier.height(8.dp))
                 OutlinedTextField(
                     value = batch,
                     label = { Text(text = "Batch") },
+                    maxLines = 1,
                     onValueChange = { batch = it },
                     modifier = Modifier.fillMaxWidth()
                 )
                 Spacer(modifier = Modifier.height(8.dp))
-                Spacer(modifier = Modifier.height(8.dp))
                 OutlinedTextField(
                     value = imageUrl,
                     label = { Text(text = "Link Gambar") },
+                    maxLines = 1,
                     onValueChange = { imageUrl = it },
                     modifier = Modifier.fillMaxWidth()
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 Row(modifier = Modifier.fillMaxWidth()) {
-                    Spacer(modifier = Modifier.width(8.dp))
                     Button(
                         onClick = {
                             databaseHelper.deleteData(id)
@@ -121,6 +122,7 @@ fun DialogUpdateMentee(
                     ) {
                         Text(text = "Hapus")
                     }
+                    Spacer(modifier = Modifier.width(8.dp))
                     Button(
                         onClick = {
                             databaseHelper.updateData(id, name, program, batch, imageUrl)

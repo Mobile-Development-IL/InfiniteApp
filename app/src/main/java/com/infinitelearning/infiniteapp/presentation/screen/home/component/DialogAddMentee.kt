@@ -74,28 +74,30 @@ fun DialogAddMentee(
                     value = name,
                     onValueChange = onNameChange,
                     label = { Text(text = "Nama") },
+                    maxLines = 1,
                     modifier = Modifier.fillMaxWidth()
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 OutlinedTextField(
                     value = program,
                     label = { Text(text = "Program") },
+                    maxLines = 1,
                     onValueChange = onProgramChange,
                     modifier = Modifier.fillMaxWidth()
                 )
                 Spacer(modifier = Modifier.height(8.dp))
-                Spacer(modifier = Modifier.height(8.dp))
                 OutlinedTextField(
                     value = batch,
                     label = { Text(text = "Batch") },
+                    maxLines = 1,
                     onValueChange = onBatchChange,
                     modifier = Modifier.fillMaxWidth()
                 )
                 Spacer(modifier = Modifier.height(8.dp))
-                Spacer(modifier = Modifier.height(8.dp))
                 OutlinedTextField(
                     value = imageUrl,
                     label = { Text(text = "Link Gambar") },
+                    maxLines = 1,
                     onValueChange = onImageUrlChange,
                     modifier = Modifier.fillMaxWidth()
                 )
