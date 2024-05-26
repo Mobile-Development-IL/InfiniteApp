@@ -109,16 +109,6 @@ fun DialogUpdateMentee(
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 Row(modifier = Modifier.fillMaxWidth()) {
-                    Button(
-                        onClick = {
-                            databaseHelper.updateData(id, name, program, batch, imageUrl)
-                            onDismiss()
-                        },
-                        shape = MaterialTheme.shapes.medium,
-                        modifier = Modifier.weight(1f)
-                    ) {
-                        Text(text = "Update")
-                    }
                     Spacer(modifier = Modifier.width(8.dp))
                     Button(
                         onClick = {
@@ -130,6 +120,16 @@ fun DialogUpdateMentee(
                         modifier = Modifier.weight(1f)
                     ) {
                         Text(text = "Hapus")
+                    }
+                    Button(
+                        onClick = {
+                            databaseHelper.updateData(id, name, program, batch, imageUrl)
+                            onDismiss()
+                        },
+                        shape = MaterialTheme.shapes.medium,
+                        modifier = Modifier.weight(1f)
+                    ) {
+                        Text(text = "Update")
                     }
                 }
             }
