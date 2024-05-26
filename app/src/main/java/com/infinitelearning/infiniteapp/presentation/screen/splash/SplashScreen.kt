@@ -21,7 +21,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.infinitelearning.infiniteapp.R
-import com.infinitelearning.infiniteapp.data.DataStore
+import com.infinitelearning.infiniteapp.data.local.datastore.DataStore
 import com.infinitelearning.infiniteapp.navigation.Screen
 import kotlinx.coroutines.delay
 

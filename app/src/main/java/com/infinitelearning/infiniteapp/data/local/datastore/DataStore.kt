@@ -1,4 +1,4 @@
-package com.infinitelearning.infiniteapp.data
+package com.infinitelearning.infiniteapp.data.local.datastore
 
 import android.content.Context
 import androidx.datastore.core.DataStore

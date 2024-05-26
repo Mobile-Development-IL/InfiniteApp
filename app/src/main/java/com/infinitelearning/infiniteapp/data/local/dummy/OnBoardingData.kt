@@ -1,7 +1,7 @@
-package com.infinitelearning.infiniteapp.data
+package com.infinitelearning.infiniteapp.data.local.dummy
 
 import com.infinitelearning.infiniteapp.R
-import com.infinitelearning.infiniteapp.model.OnBoardingItem
+import com.infinitelearning.infiniteapp.domain.model.OnBoardingItem
 
 object OnBoardingData {
 

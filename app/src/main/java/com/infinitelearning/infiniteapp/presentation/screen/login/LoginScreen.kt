@@ -31,8 +31,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.infinitelearning.infiniteapp.data.DataStore
-import com.infinitelearning.infiniteapp.data.SharedPreferencesManager
+import com.infinitelearning.infiniteapp.data.local.datastore.DataStore
+import com.infinitelearning.infiniteapp.data.local.sharedpreferences.SharedPreferencesManager
 import com.infinitelearning.infiniteapp.navigation.Screen
 import com.infinitelearning.infiniteapp.presentation.screen.login.component.GoogleButton
 import com.infinitelearning.infiniteapp.presentation.screen.login.component.NameTextField

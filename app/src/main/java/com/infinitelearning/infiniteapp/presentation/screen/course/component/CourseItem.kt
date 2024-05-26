@@ -1,4 +1,4 @@
-package com.infinitelearning.infiniteapp.presentation.component
+package com.infinitelearning.infiniteapp.presentation.screen.course.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -16,7 +16,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.infinitelearning.infiniteapp.R
-import com.infinitelearning.infiniteapp.model.Course
+import com.infinitelearning.infiniteapp.domain.model.Course
 import com.infinitelearning.infiniteapp.ui.theme.InfiniteAppTheme
 
 @Composable

@@ -1,4 +1,4 @@
-package com.infinitelearning.infiniteapp.model
+package com.infinitelearning.infiniteapp.domain.model
 
 import androidx.annotation.RawRes
 

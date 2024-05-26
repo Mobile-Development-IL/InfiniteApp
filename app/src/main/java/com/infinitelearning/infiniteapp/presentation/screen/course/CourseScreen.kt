@@ -10,9 +10,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.infinitelearning.infiniteapp.data.DummyData
-import com.infinitelearning.infiniteapp.model.Course
-import com.infinitelearning.infiniteapp.presentation.component.CourseItem
+import com.infinitelearning.infiniteapp.data.local.dummy.DummyData
+import com.infinitelearning.infiniteapp.domain.model.Course
+import com.infinitelearning.infiniteapp.presentation.screen.course.component.CourseItem
 import com.infinitelearning.infiniteapp.ui.theme.InfiniteAppTheme
 
 @Composable

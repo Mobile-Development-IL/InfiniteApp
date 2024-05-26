@@ -1,6 +1,7 @@
-package com.infinitelearning.infiniteapp.presentation.component
+package com.infinitelearning.infiniteapp.presentation.screen.home.component
 
-import androidx.compose.foundation.Image
+import android.content.Context
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -15,25 +16,30 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.infinitelearning.infiniteapp.R
-import com.infinitelearning.infiniteapp.model.Mentee
+import coil.ImageLoader
+import coil.compose.AsyncImage
+import com.infinitelearning.infiniteapp.domain.model.Mentee
 import com.infinitelearning.infiniteapp.ui.theme.InfiniteAppTheme
 
 @Composable
 fun MenteeItem(
     mentee: Mentee,
     modifier: Modifier = Modifier,
+    context: Context = LocalContext.current,
+    onItemClick: (Int) -> Unit,
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
             .fillMaxWidth()
+            .clickable{ onItemClick(mentee.id) }
     ) {
-        Image(
-            painter = painterResource(id = mentee.photo),
+        AsyncImage(
+            model = mentee.photo,
+            imageLoader = ImageLoader(context),
             contentDescription = mentee.name,
             contentScale = ContentScale.Crop,
             modifier = Modifier
@@ -59,10 +65,11 @@ private fun MentorItemPreview() {
             mentee = Mentee(
                 1,
                 "Nama Mentee",
-                R.drawable.no_profile,
+                "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
                 "Batch 7",
                 "Mentee Mobile"
-            )
+            ),
+            onItemClick = { _ -> }
         )
     }
 }

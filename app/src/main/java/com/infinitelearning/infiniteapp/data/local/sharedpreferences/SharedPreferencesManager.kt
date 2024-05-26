@@ -1,4 +1,4 @@
-package com.infinitelearning.infiniteapp.data
+package com.infinitelearning.infiniteapp.data.local.sharedpreferences
 
 import android.content.Context
 import com.infinitelearning.infiniteapp.utils.PreferencesKey.NAME_KEY

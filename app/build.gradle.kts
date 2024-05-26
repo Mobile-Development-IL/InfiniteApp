@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("kotlin-parcelize")
 }
 
 android {
@@ -88,4 +89,8 @@ dependencies {
 
     //Data-Store
     implementation(libs.androidx.datastore.preferences)
+
+    //Lifecycle
+    implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
 }

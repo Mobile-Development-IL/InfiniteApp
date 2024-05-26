@@ -1,7 +1,7 @@
 package com.infinitelearning.infiniteapp.utils
 
 import android.content.Context
-import com.infinitelearning.infiniteapp.model.FileModel
+import com.infinitelearning.infiniteapp.domain.model.FileModel
 
 object FileHelper {
     fun writeToFile(fileModel: FileModel, context: Context) {

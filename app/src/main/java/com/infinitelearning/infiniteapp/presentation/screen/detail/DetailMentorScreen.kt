@@ -23,8 +23,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.infinitelearning.infiniteapp.data.DummyData
-import com.infinitelearning.infiniteapp.model.Mentor
+import com.infinitelearning.infiniteapp.data.local.dummy.DummyData
+import com.infinitelearning.infiniteapp.domain.model.Mentor
 
 @Composable
 fun DetailMentorScreen(

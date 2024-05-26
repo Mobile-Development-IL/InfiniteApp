@@ -9,7 +9,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavController
-import com.infinitelearning.infiniteapp.model.FileModel
+import com.infinitelearning.infiniteapp.domain.model.FileModel
 import com.infinitelearning.infiniteapp.presentation.screen.task.component.TaskContent
 import com.infinitelearning.infiniteapp.utils.FileHelper
 

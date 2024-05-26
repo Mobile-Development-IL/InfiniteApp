@@ -36,8 +36,8 @@ import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.rememberLottieComposition
-import com.infinitelearning.infiniteapp.data.OnBoardingData
-import com.infinitelearning.infiniteapp.model.OnBoardingItem
+import com.infinitelearning.infiniteapp.data.local.dummy.OnBoardingData
+import com.infinitelearning.infiniteapp.domain.model.OnBoardingItem
 import com.infinitelearning.infiniteapp.navigation.Screen
 import kotlinx.coroutines.launch
 
