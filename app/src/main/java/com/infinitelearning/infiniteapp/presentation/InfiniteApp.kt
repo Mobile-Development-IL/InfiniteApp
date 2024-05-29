@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.BrowseGallery
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Map
 import androidx.compose.material.icons.filled.Movie
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Topic
@@ -18,6 +19,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -39,6 +41,7 @@ import com.infinitelearning.infiniteapp.presentation.screen.detail.DetailMentorS
 import com.infinitelearning.infiniteapp.presentation.screen.gallery.GalleryScreen
 import com.infinitelearning.infiniteapp.presentation.screen.home.HomeScreen
 import com.infinitelearning.infiniteapp.presentation.screen.login.LoginScreen
+import com.infinitelearning.infiniteapp.presentation.screen.maps.MapsScreen
 import com.infinitelearning.infiniteapp.presentation.screen.movie.MovieScreen
 import com.infinitelearning.infiniteapp.presentation.screen.onboarding.OnBoardingScreen
 import com.infinitelearning.infiniteapp.presentation.screen.splash.SplashScreen
@@ -46,6 +49,8 @@ import com.infinitelearning.infiniteapp.presentation.screen.task.AddTaskScreen
 import com.infinitelearning.infiniteapp.presentation.screen.task.DetailTaskScreen
 import com.infinitelearning.infiniteapp.presentation.screen.task.TaskScreen
 import com.infinitelearning.infiniteapp.utils.shouldShowBottomBar
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -70,6 +75,11 @@ fun InfiniteApp(
                                 imageVector = Icons.Default.Share,
                                 contentDescription = stringResource(id = R.string.menu_share)
                             )
+                        }
+                        IconButton(onClick = {
+                                navController.navigate(Screen.Maps.route)
+                        }) {
+                            Icon(imageVector = Icons.Default.Map, contentDescription = "maps")
                         }
                     }
                 )
@@ -145,6 +155,10 @@ fun InfiniteApp(
                 DetailTaskScreen(
                     titleFile = titleFile, navController = navController
                 )
+            }
+
+            composable(Screen.Maps.route) {
+                MapsScreen(navController = navController)
             }
         }
     }

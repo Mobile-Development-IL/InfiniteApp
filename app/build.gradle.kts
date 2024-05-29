@@ -106,4 +106,7 @@ dependencies {
     // firebase
     // google auth
     implementation("com.google.android.gms:play-services-auth:21.2.0")
+
+    // maps
+    implementation("com.google.maps.android:maps-compose:4.3.3")
 }

@@ -14,4 +14,5 @@ sealed class Screen (val route: String){
     data object DetailTask : Screen("detail_task/{title}") {
         fun createRoute(title: String) = "detail_task/$title"
     }
+    data object Maps: Screen("maps")
 }
