@@ -16,19 +16,20 @@ import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.infinitelearning.infiniteapp.data.local.datastore.DataStore
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.auth.FirebaseAuth
 import com.infinitelearning.infiniteapp.data.local.dummy.DummyData
-import com.infinitelearning.infiniteapp.data.local.sharedpreferences.SharedPreferencesManager
 import com.infinitelearning.infiniteapp.data.local.sqlite.DatabaseHelper
 import com.infinitelearning.infiniteapp.domain.model.Mentee
 import com.infinitelearning.infiniteapp.domain.model.Mentor
@@ -39,25 +40,17 @@ import com.infinitelearning.infiniteapp.presentation.screen.home.component.Dialo
 import com.infinitelearning.infiniteapp.presentation.screen.home.component.Header
 import com.infinitelearning.infiniteapp.presentation.screen.home.component.MenteeItem
 import com.infinitelearning.infiniteapp.presentation.screen.home.component.MentorItem
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
+import com.infinitelearning.infiniteapp.utils.Constant.CLIENT
 
 @Composable
 fun HomeScreen(
     navController: NavController,
     modifier: Modifier = Modifier,
     context: Context = LocalContext.current,
-    coroutineScope: CoroutineScope = rememberCoroutineScope()
 ) {
     val mentors = DummyData.mobileMentors
 
-    val sharedPreferencesManager = remember {
-        SharedPreferencesManager(context)
-    }
-    val dataStore = DataStore(context)
-
-    val name = sharedPreferencesManager.name ?: ""
-
+    val currentUser = FirebaseAuth.getInstance().currentUser?.email?.substringBefore("@") ?: "N/A"
     val databaseHelper = DatabaseHelper(context)
     val mentees = databaseHelper.readData()
 
@@ -68,6 +61,7 @@ fun HomeScreen(
     var programMentee by remember { mutableStateOf("") }
     var batchMentee by remember { mutableStateOf("") }
     var imageUrl by remember { mutableStateOf("") }
+    var isSignedOut by remember { mutableStateOf(false) }
 
     if (isDialogShown) {
         DialogAddMentee(
@@ -107,31 +101,52 @@ fun HomeScreen(
         )
     }
 
-    HomeContent(
-        navController = navController,
-        name = name,
-        mentors = mentors,
-        mentees = mentees,
-        onLogoutClick = {
-            sharedPreferencesManager.clear()
-            coroutineScope.launch {
-                dataStore.clearStatus()
-            }
-            navController.navigate(Screen.Login.route) {
-                popUpTo(Screen.Home.route) {
+    if (isSignedOut) {
+        LaunchedEffect(Unit) {
+            navController.navigate(Screen.Login.route){
+                popUpTo(Screen.Home.route){
                     inclusive = true
                 }
             }
-        },
-        onInsertClick = {
-            isDialogShown = true
-        },
-        modifier = modifier,
-        showDetail = { menteeId, isShown ->
-            idMentee = menteeId
-            isDetailShown = isShown
         }
-    )
+    } else {
+        HomeContent(
+            navController = navController,
+            name = currentUser,
+            mentors = mentors,
+            mentees = mentees,
+            onLogoutClick = {
+                val googleLogin =
+                    GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                        .requestEmail()
+                        .requestIdToken(CLIENT)
+                        .build()
+
+                @Suppress("DEPRECATION")
+                val googleClient = GoogleSignIn.getClient(context, googleLogin)
+                googleClient.signOut().addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        FirebaseAuth.getInstance().signOut()
+                        isSignedOut = true
+                    } else {
+                        Toast.makeText(
+                            context,
+                            "Logout Gagal",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            },
+            onInsertClick = {
+                isDialogShown = true
+            },
+            modifier = modifier,
+            showDetail = { menteeId, isShown ->
+                idMentee = menteeId
+                isDetailShown = isShown
+            }
+        )
+    }
 }
 
 @Composable

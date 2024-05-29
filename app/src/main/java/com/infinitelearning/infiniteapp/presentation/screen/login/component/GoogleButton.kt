@@ -19,8 +19,8 @@ import com.infinitelearning.infiniteapp.R
 @Composable
 fun GoogleButton(
     clicked: () -> Unit,
-    isConnectLoading: Boolean = false,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    isConnectLoading: Boolean = false
 ) {
 
     OutlinedButton(

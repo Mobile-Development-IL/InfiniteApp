@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "295265773395",
+    "project_id": "infiniteapp-ce3a3",
+    "storage_bucket": "infiniteapp-ce3a3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295265773395:android:68b2ab597ac76a14d4a3a6",
+        "android_client_info": {
+          "package_name": "com.infinitelearning.infiniteapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "295265773395-jam38b9sp6cfv6smhp5lghq3g82mvtk3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.infinitelearning.infiniteapp",
+            "certificate_hash": "c33e165a3d6632c6441520b228f30fbdb2be24d0"
+          }
+        },
+        {
+          "client_id": "295265773395-6cg5k0mgjuet4kpb5hepgoe8uaa3fs6m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkZaB6e7RRhZfgwjnPKLcSYtsO_4SHN1E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "295265773395-6cg5k0mgjuet4kpb5hepgoe8uaa3fs6m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

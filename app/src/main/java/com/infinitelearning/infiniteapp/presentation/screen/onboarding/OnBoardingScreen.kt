@@ -36,6 +36,7 @@ import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.rememberLottieComposition
+import com.google.firebase.auth.FirebaseAuth
 import com.infinitelearning.infiniteapp.data.local.dummy.OnBoardingData
 import com.infinitelearning.infiniteapp.domain.model.OnBoardingItem
 import com.infinitelearning.infiniteapp.navigation.Screen
@@ -51,9 +52,17 @@ fun OnBoardingScreen(
     OnBoardingContent(
         onBoardings = onBoardings,
         moveToLogin = {
-            navController.navigate(Screen.Login.route) {
-                popUpTo(Screen.OnBoarding.route) {
-                    inclusive = true
+            if (FirebaseAuth.getInstance().currentUser?.email.isNullOrEmpty()) {
+                navController.navigate(Screen.Login.route) {
+                    popUpTo(Screen.OnBoarding.route) {
+                        inclusive = true
+                    }
+                }
+            } else {
+                navController.navigate(Screen.Home.route) {
+                    popUpTo(Screen.OnBoarding.route) {
+                        inclusive = true
+                    }
                 }
             }
         },
